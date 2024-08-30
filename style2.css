@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}   
+
+body{
+    min-height: 100vh;
+    background-color: #322840;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    width: 500px;
+    border: 2px transparent;
+    border-radius: 15px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    padding: 30px 40px;
+}
+
+h1{
+    font-size: 36px;
+    text-align: left;
+}
+h1::after{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 4rem;
+    height: 0.3rem;
+    background-color: #494c4e;
+    margin: 0 auto;
+    border-radius: 10px;
+} 
+.input-container{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+
+}
+
+.input-container input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    outline: none;
+    border: none;
+    box-shadow: 1px 1px 6px #0000001c;
+    border-radius: 15px;
+    font-size: 16px;
+    padding: 20px 45px 20px 20px;
+    color: #494c4e;
+
+}
+
+.input-container input:hover{
+    background-color: #eeeeee75;
+
+}
+.input-container img{
+    position: absolute;
+    right: 20px;
+    top: 20%;
+    margin-top: 5px;
+}
+
+.input-container a{
+    color: #494c4e;
+    font-size: 12px;
+    text-decoration: none;
+    font-weight: bold;
+}
+a:hover{
+    text-decoration: underline;
+}
+
+.submit-button {
+    width: 100%;
+    height: 50px;
+    background-color: #494c4e;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.submit-button a{
+    text-decoration: none;
+    color: #fff;
+    font-size: large;
+}
+
+.submit-button:hover{
+    background-color: #322840;
+}
+
+.cad{
+    margin-top: 10px;
+    color: #322840;
+    font-weight: bold;
+}
+
+.cad a{
+    text-decoration: none;
+    color: #494c4e;
+    font-weight: bold;
+}
+
+.cad a:hover{
+    text-decoration: underline;
+    color: #322840;
+}
+
+
+.checkbox{
+    font-size: 14px;
+    color: #322840;
+    font-weight: bold;
+    margin: 4px;
+}
