@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style3.css">
+    <title>Validação</title>
+</head>
+<body>
+    <div class="container">
+        <form  onsubmit="return validarCPF()" action="" method="post">
+
+            <h1>Validar Usuário</h1>
+            <div class="input-group">
+                <div class="input-box">
+                    <label class="label-title"for="Nome">Nome Completo</label>
+                    <input type="text" id="nome" minlength="5" maxlength="80" required>
+                </div>
+                <div class="input-box">
+                    <label class="label-title"for="nascimento" id="nascimento">Data de nascimento</label required>
+                    <input type="date" name="date" id="date">
+                </div>
+                <div class="input-box">
+                    <label for="" class="label-title">CPF</label>
+                    <input type="text" name="cpf" id="cpf" inputmode="numeric"placeholder="xxx.xxx.xxx-xx" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Digite um CPF no formato 000.000.000-00" required  >
+                </div>
+                <div class="input-box">
+                    <label class="label-title" >Insira tipo da documentação</label>
+                    <select>
+                        <option value="Carteira de Habilitação">Carteira de Habilitação</option>
+                        <option value="Documento de Identidade">Documento de Identidade</option>
+                        <option value="Passaporte">Passaporte</option>
+                        <option value="CPF">CPF</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <label for="document" class="label-title">Upload da documentação</label>
+                    <input type="file" id="upload">
+                </div>
+                <div class="input-box">
+                    <label class="label-title">Informações adicionais</label>
+                    <textarea id="comentario" name="comentario" rows="4" cols="105"></textarea>
+                </div>
+                <div class="btn-submit">
+                    <button type="submit"><a href="#">Enviar</a></button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        function validarCPF() {
+            const cpf = document.getElementById('cpf').value.replace(/[^\d]+/g,''); // Remove caracteres não numéricos
+            if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) {
+                alert("CPF inválido");
+                return false;
+            }
+
+            let soma;
+            let resto;
+            soma = 0;
+
+            for (let i = 1; i <= 9; i++) 
+                soma = soma + parseInt(cpf.substring(i-1, i)) * (11 - i);
+
+            resto = (soma * 10) % 11;
+
+            if ((resto === 10) || (resto === 11)) 
+                resto = 0;
+
+            if (resto !== parseInt(cpf.substring(9, 10))) {
+                alert("CPF inválido");
+                return false;
+            }
+
+            soma = 0;
+            for (let i = 1; i <= 10; i++) 
+                soma = soma + parseInt(cpf.substring(i-1, i)) * (12 - i);
+
+            resto = (soma * 10) % 11;
+
+            if ((resto === 10) || (resto === 11)) 
+                resto = 0;
+
+            if (resto !== parseInt(cpf.substring(10, 11))) {
+                alert("CPF inválido");
+                return false;
+            }
+
+            return true; // CPF válido
+        }
+    </script>
+</body>
+</html>
